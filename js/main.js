@@ -117,23 +117,32 @@ function initHeroSlider() {
   // Touch swipe support for mobile
   if (heroStage) {
     let touchStartX = 0;
+    let touchStartY = 0;
     let touchEndX = 0;
+    let touchEndY = 0;
 
     heroStage.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
+      touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
     }, { passive: true });
 
     heroStage.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
+      touchEndX = e.changedTouches[0].clientX;
+      touchEndY = e.changedTouches[0].clientY;
       handleSwipe();
     }, { passive: true });
 
     function handleSwipe() {
-      const swipeDistance = touchEndX - touchStartX;
-      if (Math.abs(swipeDistance) > 40) {
-        if (swipeDistance < 0) nextSlide();
-        else prevSlide();
-        startAutoplay();
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+      // Ensure horizontal swipe is dominant and above threshold
+      if (Math.abs(deltaX) > 35 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+        if (deltaX < 0) {
+          nextSlide(); // swipe left -> next
+        } else {
+          prevSlide(); // swipe right -> prev
+        }
+        startAutoplay(); // reset 3s timer
       }
     }
   }
@@ -350,24 +359,45 @@ function initHeaderScroll() {
 function initMobileMenu() {
   const toggle = document.querySelector('.mobile-menu-toggle');
   const navDrawer = document.querySelector('.mobile-nav-drawer');
+  const navOverlay = document.querySelector('.mobile-nav-overlay');
   const closeBtn = document.querySelector('.mobile-nav-close');
   const navLinks = document.querySelectorAll('.mobile-nav-links a');
 
-  if (!toggle) return;
+  if (!toggle || !navDrawer) return;
 
-  toggle.addEventListener('click', () => {
-    if (navDrawer) navDrawer.classList.toggle('active');
+  function openMenu() {
+    navDrawer.classList.add('active');
+    if (navOverlay) navOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    navDrawer.classList.remove('active');
+    if (navOverlay) navOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (navDrawer.classList.contains('active')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
-  if (closeBtn && navDrawer) {
-    closeBtn.addEventListener('click', () => {
-      navDrawer.classList.remove('active');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeMenu();
     });
   }
 
+  if (navOverlay) {
+    navOverlay.addEventListener('click', closeMenu);
+  }
+
   navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (navDrawer) navDrawer.classList.remove('active');
-    });
+    link.addEventListener('click', closeMenu);
   });
 }

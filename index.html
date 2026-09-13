@@ -19,6 +19,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,600..900;1,9..144,400;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
 
+  <!-- Preload Critical Hero Product Cutout -->
+  <link rel="preload" as="image" href="assets/images/shake-chocolate.png" type="image/png">
+
   <link rel="stylesheet" href="css/style.css">
 
   <!-- JSON-LD LocalBusiness & FoodEstablishment Schema -->
@@ -107,28 +110,32 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer Menu -->
-  <div class="mobile-nav-drawer" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:var(--bg-cream-card); z-index:1500; transform:translateX(-100%); transition:transform 0.35s ease; padding:2rem; display:flex; flex-direction:column; justify-content:space-between;">
+  <!-- Mobile Navigation Overlay & Drawer -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
     <div>
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2.5rem;">
+      <div class="mobile-nav-header">
         <div class="logo-brand">
           <div class="logo-symbol">P</div>
-          <span class="logo-title" style="font-size:1.4rem;">PAVONE</span>
+          <div class="logo-text">
+            <span class="logo-title">PAVONE</span>
+          </div>
         </div>
-        <button class="mobile-nav-close" style="font-size:1.8rem; color:var(--burgundy-primary);">✕</button>
+        <button class="mobile-nav-close" aria-label="Close Mobile Navigation">✕</button>
       </div>
-      <ul class="mobile-nav-links" style="list-style:none; display:flex; flex-direction:column; gap:1.5rem; font-family:var(--font-display); font-size:1.5rem; font-weight:800; color:var(--burgundy-primary);">
+      <ul class="mobile-nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="#menu">Menu</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="#reviews">Surat Reviews</a></li>
-        <li><a href="locations/mota-varachha.html">Mota Varachha Outlet</a></li>
-        <li><a href="contact.html">Contact & Catering</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="locations/mota-varachha.html">Location</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
-    <div style="padding-top:2rem; border-top:1px solid var(--border-burgundy-light);">
-      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">📍 Lajamni Chowk, Mota Varachha, Surat</p>
-      <a href="tel:+919537570515" class="btn btn-primary" style="width:100%;">CALL +91 95375 70515</a>
+    <div class="mobile-nav-footer">
+      <a href="#menu" class="btn btn-primary btn-mobile-order">ORDER NOW</a>
+      <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.4;">📍 Lajamni Chowk, Mota Varachha, Surat</p>
+      <a href="tel:+919537570515" class="btn btn-secondary" style="width:100%; min-height:44px; font-size:0.85rem;">📞 +91 95375 70515</a>
     </div>
   </div>
 
