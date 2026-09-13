@@ -153,39 +153,78 @@ function initHeroSlider() {
 }
 
 /* ==========================================================================
-   2. MENU CATEGORY FILTER
+   2. MENU SEARCH & CATEGORY FILTER
    ========================================================================== */
 function initMenuFilter() {
   const filterBtns = document.querySelectorAll('.category-btn');
   const menuCards = document.querySelectorAll('.menu-card');
+  const searchInput = document.getElementById('menuSearchInput');
+  const searchClearBtn = document.getElementById('searchClearBtn');
 
-  if (!filterBtns.length) return;
+  let activeCategory = 'all';
+  let searchQuery = '';
+
+  function applyFilters() {
+    menuCards.forEach(card => {
+      const cardCategory = (card.getAttribute('data-category') || '').toLowerCase();
+      const cardName = (card.getAttribute('data-name') || card.querySelector('.card-title')?.textContent || '').toLowerCase();
+      const cardKeywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+      const cardDesc = (card.querySelector('.card-desc')?.textContent || '').toLowerCase();
+
+      const matchesCategory = activeCategory === 'all' || 
+        cardCategory.split(' ').includes(activeCategory) || 
+        (activeCategory === 'thick-shakes' && cardCategory.includes('thick-shakes'));
+
+      const matchesSearch = !searchQuery || 
+        cardName.includes(searchQuery) || 
+        cardKeywords.includes(searchQuery) || 
+        cardDesc.includes(searchQuery) || 
+        cardCategory.includes(searchQuery);
+
+      if (matchesCategory && matchesSearch) {
+        card.style.display = 'flex';
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 30);
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(12px)';
+        setTimeout(() => {
+          card.style.display = 'none';
+        }, 200);
+      }
+    });
+  }
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
-      const targetCategory = btn.getAttribute('data-category');
-
-      menuCards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-        if (targetCategory === 'all' || cardCategory === targetCategory) {
-          card.style.display = 'flex';
-          setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          }, 50);
-        } else {
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(15px)';
-          setTimeout(() => {
-            card.style.display = 'none';
-          }, 250);
-        }
-      });
+      activeCategory = (btn.getAttribute('data-category') || 'all').toLowerCase();
+      applyFilters();
     });
   });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      if (searchClearBtn) {
+        searchClearBtn.style.display = searchQuery ? 'flex' : 'none';
+      }
+      applyFilters();
+    });
+  }
+
+  if (searchClearBtn && searchInput) {
+    searchClearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      searchClearBtn.style.display = 'none';
+      searchInput.focus();
+      applyFilters();
+    });
+  }
 }
 
 /* ==========================================================================

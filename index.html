@@ -571,134 +571,120 @@
           </p>
         </div>
 
+        <!-- Menu Search Input -->
+        <div class="menu-search-wrapper">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="menuSearchInput" class="menu-search-input" placeholder="Search shakes (e.g. Vanilla, Butterscotch)..." aria-label="Search thickshakes">
+          <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search">✕</button>
+        </div>
+
         <!-- Horizontal Category Filters -->
         <div class="category-nav-wrapper">
           <div class="category-nav" role="tablist">
             <button class="category-btn active" data-category="all">ALL SHAKES</button>
-            <button class="category-btn" data-category="chocolate">CHOCOLATE</button>
-            <button class="category-btn" data-category="oreo">OREO</button>
-            <button class="category-btn" data-category="biscoff">BISCOFF</button>
+            <button class="category-btn" data-category="thick-shakes">THICK SHAKES (250 ML)</button>
+            <button class="category-btn" data-category="vanilla">VANILLA</button>
             <button class="category-btn" data-category="butterscotch">BUTTERSCOTCH</button>
-            <button class="category-btn" data-category="fruit">FRUIT</button>
-            <button class="category-btn" data-category="nuts">NUTS & ROYAL</button>
+            <button class="category-btn" data-category="chocolate">CHOCOLATE</button>
           </div>
         </div>
 
-        <!-- Editorial Menu Grid -->
-        <div class="menu-grid">
-          <!-- Card 1: Oreo Crush -->
-          <div class="menu-card featured-card" data-category="oreo">
-            <span class="card-tag">Surat's #1 Craving</span>
-            <span class="card-price-badge">₹170</span>
+        <!-- Editorial Menu Grid: The First 5 Pavone Products -->
+        <div class="menu-grid" id="menuGrid">
+          <!-- 1. Vanilla -->
+          <div class="menu-card featured-card" id="vanilla-thick-shake" data-category="thick-shakes vanilla" data-name="Vanilla" data-keywords="vanilla classic white thickshake 250ml">
+            <span class="card-tag">Classic Specialty</span>
+            <span class="card-price-badge">₹140</span>
             <div class="card-image-area">
-              <img src="assets/images/shake-oreo.png" alt="Oreo Crush Thick Shake" loading="lazy">
+              <img src="images/menu/thick-shakes/vanilla.webp" alt="Vanilla Thick Shake (250 ML)" loading="lazy" width="280" height="380">
             </div>
             <div class="card-content">
-              <span class="card-category-label">Oreo Specialty</span>
-              <h3 class="card-title">Oreo Crush Thickshake</h3>
-              <p class="card-desc">Dense creamy vanilla base blended with whole crunchy Oreos, topped with chocolate drizzle & cookie rim.</p>
+              <span class="card-category-label">Thick Shakes • 250 ML</span>
+              <h3 class="card-title">Vanilla</h3>
+              <p class="card-desc">Classic rich Madagascan vanilla infused into velvety whole-dairy thick cream with delicate crumble topping.</p>
               <div class="card-footer">
                 <div class="card-specs">
-                  <span>⚡ Extra Thick</span>
+                  <span>✨ 250 ML</span>
                 </div>
                 <button class="btn-card-order">+ Add to Bag</button>
               </div>
             </div>
           </div>
 
-          <!-- Card 2: Belgian Dark Chocolate -->
-          <div class="menu-card" data-category="chocolate">
-            <span class="card-tag">Chef's Choice</span>
-            <span class="card-price-badge">₹180</span>
-            <div class="card-image-area">
-              <img src="assets/images/shake-chocolate.png" alt="Belgian Dark Chocolate Thickshake" loading="lazy">
-            </div>
-            <div class="card-content">
-              <span class="card-category-label">Chocolate Collection</span>
-              <h3 class="card-title">Belgian Dark Chocolate</h3>
-              <p class="card-desc">Intense 55% cocoa molten Belgian chocolate blended into silky cream with brownie crumbles.</p>
-              <div class="card-footer">
-                <div class="card-specs">
-                  <span>🍫 100% Couverture</span>
-                </div>
-                <button class="btn-card-order">+ Add to Bag</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3: Lotus Biscoff Dream -->
-          <div class="menu-card featured-card" data-category="biscoff">
-            <span class="card-tag">Bestseller</span>
-            <span class="card-price-badge">₹190</span>
-            <div class="card-image-area">
-              <img src="assets/images/shake-biscoff.png" alt="Lotus Biscoff Dream Shake" loading="lazy">
-            </div>
-            <div class="card-content">
-              <span class="card-category-label">Speculoos Magic</span>
-              <h3 class="card-title">Lotus Biscoff Dream</h3>
-              <p class="card-desc">Warm caramelized Belgian Biscoff cookie spread whipped into thick velvet with crunchy biscuit crumble.</p>
-              <div class="card-footer">
-                <div class="card-specs">
-                  <span>🍪 Original Lotus</span>
-                </div>
-                <button class="btn-card-order">+ Add to Bag</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4: Fresh Strawberry Swirl -->
-          <div class="menu-card" data-category="fruit">
-            <span class="card-tag">Seasonal Fresh</span>
-            <span class="card-price-badge">₹160</span>
-            <div class="card-image-area">
-              <img src="assets/images/shake-strawberry.png" alt="Fresh Strawberry Swirl Shake" loading="lazy">
-            </div>
-            <div class="card-content">
-              <span class="card-category-label">Fruit Delights</span>
-              <h3 class="card-title">Fresh Strawberry Swirl</h3>
-              <p class="card-desc">Real ripe Mahabaleshwar strawberries blended into rich cream with vibrant berry reduction.</p>
-              <div class="card-footer">
-                <div class="card-specs">
-                  <span>🍓 100% Real Fruit</span>
-                </div>
-                <button class="btn-card-order">+ Add to Bag</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 5: Royal Butterscotch Crunch -->
-          <div class="menu-card" data-category="butterscotch">
+          <!-- 2. Vanilla Chips -->
+          <div class="menu-card" id="vanilla-chips-thick-shake" data-category="thick-shakes vanilla chocolate" data-name="Vanilla Chips" data-keywords="vanilla chips choco chips waffle thickshake 250ml">
+            <span class="card-tag">Crowd Favorite</span>
             <span class="card-price-badge">₹150</span>
             <div class="card-image-area">
-              <img src="assets/images/shake-butterscotch.png" alt="Butterscotch Crunch Thickshake" loading="lazy">
+              <img src="images/menu/thick-shakes/vanilla-chips.webp" alt="Vanilla Chips Thick Shake (250 ML)" loading="lazy" width="280" height="380">
             </div>
             <div class="card-content">
-              <span class="card-category-label">Praline Crunch</span>
-              <h3 class="card-title">Butterscotch Crunch</h3>
-              <p class="card-desc">Caramelized golden toffee ripples with roasted cashew praline crunches in every sip.</p>
+              <span class="card-category-label">Thick Shakes • 250 ML</span>
+              <h3 class="card-title">Vanilla Chips</h3>
+              <p class="card-desc">Silky Madagascar vanilla thickshake crowned with decadent gourmet chocolate chips and crispy wafer cone.</p>
               <div class="card-footer">
                 <div class="card-specs">
-                  <span>✨ Golden Praline</span>
+                  <span>✨ 250 ML</span>
                 </div>
                 <button class="btn-card-order">+ Add to Bag</button>
               </div>
             </div>
           </div>
 
-          <!-- Card 6: Royal Kaju Anjeer -->
-          <div class="menu-card featured-card" data-category="nuts">
-            <span class="card-tag">Royal Signature</span>
-            <span class="card-price-badge">₹210</span>
+          <!-- 3. Butterscotch -->
+          <div class="menu-card" id="butterscotch-thick-shake" data-category="thick-shakes butterscotch" data-name="Butterscotch" data-keywords="butterscotch toffee caramel praline thickshake 250ml">
+            <span class="card-tag">Praline Crunch</span>
+            <span class="card-price-badge">₹150</span>
             <div class="card-image-area">
-              <img src="assets/images/shake-kaju.png" alt="Royal Kaju Anjeer Shake" loading="lazy">
+              <img src="images/menu/thick-shakes/butterscotch.webp" alt="Butterscotch Thick Shake (250 ML)" loading="lazy" width="280" height="380">
             </div>
             <div class="card-content">
-              <span class="card-category-label">Nuts & Dryfruits</span>
-              <h3 class="card-title">Royal Kaju Anjeer</h3>
-              <p class="card-desc">Slow-roasted cashews, premium Afghan figs, and rich dairy cream topped with pistachio slivers.</p>
+              <span class="card-category-label">Thick Shakes • 250 ML</span>
+              <h3 class="card-title">Butterscotch</h3>
+              <p class="card-desc">Golden toffee ripples and buttery caramel praline crunch blended in pure dairy thick cream.</p>
               <div class="card-footer">
                 <div class="card-specs">
-                  <span>👑 Premium Dryfruits</span>
+                  <span>✨ 250 ML</span>
+                </div>
+                <button class="btn-card-order">+ Add to Bag</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Butterscotch Kaju -->
+          <div class="menu-card featured-card" id="butterscotch-kaju-thick-shake" data-category="thick-shakes butterscotch nuts" data-name="Butterscotch Kaju" data-keywords="butterscotch kaju cashew nuts caramel thickshake 250ml">
+            <span class="card-tag">Royal Crunch</span>
+            <span class="card-price-badge">₹170</span>
+            <div class="card-image-area">
+              <img src="images/menu/thick-shakes/butterscotch-kaju.webp" alt="Butterscotch Kaju Thick Shake (250 ML)" loading="lazy" width="280" height="380">
+            </div>
+            <div class="card-content">
+              <span class="card-category-label">Thick Shakes • 250 ML</span>
+              <h3 class="card-title">Butterscotch Kaju</h3>
+              <p class="card-desc">Slow-roasted cashew praline and caramel toffee swirl whipped with thick cream into an indulgent delight.</p>
+              <div class="card-footer">
+                <div class="card-specs">
+                  <span>✨ 250 ML</span>
+                </div>
+                <button class="btn-card-order">+ Add to Bag</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Chocolate -->
+          <div class="menu-card" id="chocolate-thick-shake" data-category="thick-shakes chocolate" data-name="Chocolate" data-keywords="chocolate dark cocoa choco thickshake 250ml">
+            <span class="card-tag">Rich Cocoa</span>
+            <span class="card-price-badge">₹160</span>
+            <div class="card-image-area">
+              <img src="images/menu/thick-shakes/chocolate.webp" alt="Chocolate Thick Shake (250 ML)" loading="lazy" width="280" height="380">
+            </div>
+            <div class="card-content">
+              <span class="card-category-label">Thick Shakes • 250 ML</span>
+              <h3 class="card-title">Chocolate</h3>
+              <p class="card-desc">Intense molten chocolate glaze, crunchy choco chips and cocoa essence in ultra-thick creamy texture.</p>
+              <div class="card-footer">
+                <div class="card-specs">
+                  <span>✨ 250 ML</span>
                 </div>
                 <button class="btn-card-order">+ Add to Bag</button>
               </div>
@@ -1067,6 +1053,7 @@
     </div>
   </div>
 
+  <script src="js/menu-data.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
