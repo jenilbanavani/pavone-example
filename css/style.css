@@ -2331,6 +2331,438 @@ button {
 }
 
 /* ==========================================================================
+   CONTACT PAGE STYLES
+   ========================================================================== */
+.contact-hero {
+  padding: 4.5rem 0 2.5rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.contact-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  font-weight: 900;
+  color: var(--burgundy-primary);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.contact-hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+.contact-hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+}
+
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-cream-soft);
+  border: 1px solid var(--border-burgundy-light);
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--burgundy-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* 4 Quick Contact Cards */
+.contact-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4.5rem;
+}
+
+.contact-quick-card {
+  background: var(--bg-cream-card);
+  border: 1.5px solid var(--border-burgundy-light);
+  border-radius: 28px 8px 28px 8px;
+  padding: 2.2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-quick-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--burgundy-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: var(--bg-cream-soft);
+  border: 1px solid var(--border-burgundy-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+  color: var(--burgundy-primary);
+}
+
+.contact-card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--burgundy-primary);
+  margin-bottom: 0.4rem;
+}
+
+.contact-card-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.contact-card-btn {
+  width: 100%;
+  min-height: 42px;
+  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* Main Hub: Map & Catering Form Grid */
+.contact-hub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 2.5rem;
+  margin-bottom: 5rem;
+  align-items: stretch;
+}
+
+.contact-map-card {
+  background: var(--bg-cream-soft);
+  border: 1.5px solid var(--border-burgundy-light);
+  border-radius: 36px 12px 36px 12px;
+  padding: 2.5rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-md);
+}
+
+.contact-map-wrapper {
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid var(--border-burgundy-light);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.contact-address-details {
+  background: #fff;
+  border: 1px solid var(--border-burgundy-light);
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.contact-address-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--burgundy-primary);
+  margin-bottom: 0.25rem;
+}
+
+.contact-address-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.contact-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.contact-badge-item {
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: var(--bg-cream);
+  border: 1px solid var(--border-burgundy-light);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  color: var(--burgundy-primary);
+}
+
+/* Party Inquiry Form Card */
+.contact-form-card {
+  background: var(--burgundy-primary);
+  color: var(--text-cream);
+  border-radius: 36px 12px 36px 12px;
+  padding: 2.8rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-card::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(230, 180, 80, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact-form-header {
+  margin-bottom: 1.75rem;
+}
+
+.contact-form-subtitle {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.contact-form-title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.contact-form-desc {
+  font-size: 0.92rem;
+  color: var(--text-cream-dim);
+  margin-top: 0.4rem;
+  line-height: 1.5;
+}
+
+.contact-form-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.contact-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.contact-form-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.contact-form-input,
+.contact-form-select,
+.contact-form-textarea {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(248, 241, 220, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form-input:focus,
+.contact-form-select:focus,
+.contact-form-textarea:focus {
+  outline: none;
+  border-color: var(--gold-light);
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 0 3px rgba(230, 180, 80, 0.25);
+}
+
+.contact-form-input::placeholder,
+.contact-form-textarea::placeholder {
+  color: rgba(248, 241, 220, 0.5);
+}
+
+.contact-form-select option {
+  background: var(--burgundy-primary);
+  color: #fff;
+}
+
+.contact-flavor-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.flavor-chip {
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(248, 241, 220, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-cream);
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.flavor-chip.selected,
+.flavor-chip:hover {
+  background: var(--gold-light);
+  color: var(--burgundy-primary);
+  border-color: var(--gold-light);
+}
+
+.contact-form-submit {
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 1rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  background: var(--bg-cream);
+  color: var(--burgundy-primary);
+  border-color: var(--bg-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.contact-form-submit:hover {
+  background: #fff;
+  color: var(--burgundy-dark);
+}
+
+/* FAQ Accordion Section */
+.contact-faq-section {
+  max-width: 860px;
+  margin: 0 auto 4.5rem auto;
+}
+
+.faq-header-center {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: var(--bg-cream-card);
+  border: 1.5px solid var(--border-burgundy-light);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item.active {
+  border-color: var(--burgundy-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 1.25rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--burgundy-primary);
+  transition: color 0.2s ease;
+}
+
+.faq-question-btn:hover {
+  color: var(--burgundy-dark);
+}
+
+.faq-chevron {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-cream-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--burgundy-primary);
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.faq-item.active .faq-chevron {
+  transform: rotate(180deg);
+  background: var(--burgundy-primary);
+  color: #fff;
+}
+
+.faq-answer-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out, padding 0.35s ease;
+  padding: 0 1.6rem;
+}
+
+.faq-item.active .faq-answer-panel {
+  max-height: 250px;
+  padding: 0 1.6rem 1.35rem 1.6rem;
+}
+
+.faq-answer-content {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  border-top: 1px dashed var(--border-burgundy-light);
+  padding-top: 0.85rem;
+}
+
+/* ==========================================================================
    RESPONSIVE MEDIA QUERIES (320px, 360px, 375px, 390px, 414px, 430px, 768px, 1024px)
    ========================================================================== */
 
@@ -2379,6 +2811,16 @@ button {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .contact-quick-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .contact-hub-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 /* 2. MOBILE & SMALL TABLET SCREENS (<= 768px) */
@@ -2398,6 +2840,58 @@ button {
 
   .container {
     padding: 0 1.25rem;
+  }
+
+  /* Contact Page Mobile Adjustments */
+  .contact-hero {
+    padding: 2.5rem 0 1.5rem 0;
+  }
+
+  .contact-hero-pills {
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-quick-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-quick-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 22px 6px 22px 6px;
+  }
+
+  .contact-map-card,
+  .contact-form-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 24px 8px 24px 8px;
+  }
+
+  .contact-map-wrapper {
+    height: 240px;
+  }
+
+  .contact-form-grid-2col {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .contact-faq-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .faq-question-btn {
+    padding: 1.1rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .faq-answer-panel {
+    padding: 0 1.2rem;
+  }
+
+  .faq-item.active .faq-answer-panel {
+    padding: 0 1.2rem 1.1rem 1.2rem;
   }
 
   /* Navbar */
