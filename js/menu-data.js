@@ -13,14 +13,14 @@ const PAVONE_CONFIG = {
   ORDER_METHOD: "WHATSAPP",
   
   // Official Store WhatsApp Number (international format without + or spaces)
-  WHATSAPP_NUMBER: "919537570515",
+  WHATSAPP_NUMBER: "91XXXXXXXXXX",
   
   // Store Details
   STORE_NAME: "Pavone Thick Shake",
   STORE_TAGLINE: "Luxury Thickshakes & Desserts",
   OUTLET_NAME: "Mota Varachha Outlet",
   ADDRESS: "Lajamni Chowk, Dwarkesh Nagari, Mota Varachha, Surat, Gujarat 394101",
-  PHONE_DISPLAY: "+91 95375 70515",
+  PHONE_DISPLAY: "+91 XXXXX XXXXX",
   OPENING_HOURS: "11:00 AM – 11:30 PM (All 7 Days)",
   
   // Currency & Ordering Defaults

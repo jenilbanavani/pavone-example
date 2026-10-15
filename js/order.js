@@ -674,7 +674,7 @@
 
     msg += `\nThank you!`;
 
-    const whatsappNumber = config.WHATSAPP_NUMBER || '919537570515';
+    const whatsappNumber = config.WHATSAPP_NUMBER || '91XXXXXXXXXX';
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
 
     // Open WhatsApp

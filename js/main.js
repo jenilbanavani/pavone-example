@@ -367,8 +367,8 @@ function initCravingCart() {
       msg += `*Total Amount: ₹${total}*\n\n`;
       msg += `Please confirm availability and preparation time for pickup / delivery at Mota Varachha. Thank you!`;
 
-      const encodedMsg = encodeURIComponent(msg);
-      const whatsappUrl = `https://wa.me/919537570515?text=${encodedMsg}`;
+      const whatsappNumber = (typeof PAVONE_CONFIG !== 'undefined' && PAVONE_CONFIG.WHATSAPP_NUMBER) ? PAVONE_CONFIG.WHATSAPP_NUMBER : '91XXXXXXXXXX';
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMsg}`;
       window.open(whatsappUrl, '_blank');
     });
   }
